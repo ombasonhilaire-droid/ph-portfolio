@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Vente de CV professionnels (ATS), lettres de motivation et optimisation LinkedIn par Père Hilaire (PH)." />
+  <title>Père Hilaire (PH) — CV professionnels</title>
+
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#111a33;
+      --muted:#9fb0d0;
+      --text:#eef3ff;
+      --accent:#6ee7ff;
+      --accent2:#a78bfa;
+      --ok:#34d399;
+      --warn:#fbbf24;
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 20% 0%, rgba(167,139,250,.25), transparent 60%),
+        radial-gradient(900px 500px at 80% 10%, rgba(110,231,255,.20), transparent 55%),
+        linear-gradient(180deg, #070a14, var(--bg));
+      line-height:1.5;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 18px}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(7,10,20,.55);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.2px;
+    }
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(110,231,255,.95), rgba(167,139,250,.95));
+      box-shadow: 0 10px 30px rgba(110,231,255,.15);
+      display:grid; place-items:center;
+      color:#081024;
+      font-weight:900;
+    }
+    .menu{
+      display:flex; gap:14px; align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .menu a{
+      color:var(--muted);
+      font-weight:650;
+      padding:8px 10px;
+      border-radius:12px;
+    }
+    .menu a:hover{ background: rgba(255,255,255,.06); color:var(--text) }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:800;
+      cursor:pointer;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,.15);
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.18) }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(110,231,255,.95), rgba(167,139,250,.95));
+      color:#091229;
+      border-color: transparent;
+    }
+    .btn.primary:hover{ filter:saturate(1.1) brightness(1.02) }
+
+    /* Hero */
+    .hero{ padding: 56px 0 24px }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .hero-card{
+      background: rgba(17,26,51,.68);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      overflow:hidden;
+      position:relative;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(600px 260px at 30% 20%, rgba(110,231,255,.18), transparent 60%),
+                  radial-gradient(700px 280px at 80% 40%, rgba(167,139,250,.16), transparent 55%);
+      pointer-events:none;
+    }
+    .hero-card > *{ position:relative; z-index:2 }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      color: var(--muted);
+      font-weight:700;
+      font-size:13px;
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height:1.05;
+      letter-spacing:-.6px;
+    }
+    .lead{
+      margin:0 0 18px;
+      color: rgba(238,243,255,.85);
+      font-size: 16px;
+      max-width: 60ch;
+    }
+    .hero-actions{
+      display:flex; flex-wrap:wrap; gap:12px;
+      align-items:center;
+      margin-top: 10px;
+    }
+
+    .mini{
+      margin-top: 16px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    .mini .stat{
+      padding:12px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      min-height:74px;
+    }
+    .mini .stat b{display:block; font-size:18px}
+    .mini .stat span{color:var(--muted); font-size:13px}
+
+    .side{
+      display:grid;
+      gap:12px;
+      align-content:start;
+    }
+    .panel{
+      background: rgba(17,26,51,.68);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    .panel h3{ margin:0 0 10px; font-size:16px }
+    .bullets{
+      margin:0; padding:0 0 0 16px; color: rgba(238,243,255,.88)
+    }
+    .bullets li{ margin:8px 0 }
+    .tag{
+      display:inline-flex; align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(52,211,153,.12);
+      color: rgba(52,211,153,.95);
+      font-weight:800;
+      font-size: 12px;
+    }
+
+    /* Sections */
+    section{ padding: 34px 0 }
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:16px;
+      margin-bottom: 14px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size: clamp(20px, 2.4vw, 28px);
+      letter-spacing:-.2px;
+    }
+    .section-title p{margin:0; color:var(--muted); max-width:72ch}
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .card{
+      background: rgba(17,26,51,.62);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .card h3{ margin:0 0 6px; font-size:16px }
+    .card p{ margin:0; color: rgba(238,243,255,.86) }
+    .muted{ color: var(--muted) }
+
+    .price{
+      display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+      margin: 10px 0 12px;
+    }
+    .price .amount{ font-size: 22px; font-weight: 900 }
+    .price .small{ color: var(--muted); font-size: 13px; font-weight: 650 }
+    .features{ margin: 0; padding: 0 0 0 16px; color: rgba(238,243,255,.88) }
+    .features li{ margin: 8px 0 }
+    .pill{
+      display:inline-flex;
+      padding:7px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      color: var(--muted);
+      font-weight:750;
+      font-size: 12px;
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:12px;
+    }
+    .step{
+      padding:14px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      min-height: 120px;
+    }
+    .step b{ display:block; margin:8px 0 6px }
+    .num{
+      width:32px; height:32px; border-radius: 12px;
+      display:grid; place-items:center;
+      background: rgba(110,231,255,.18);
+      border: 1px solid rgba(110,231,255,.20);
+      color: rgba(110,231,255,.95);
+      font-weight: 900;
+    }
+
+    /* Contact */
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:start;
+    }
+    .contact-item{
+      display:flex; gap:12px; align-items:flex-start;
+      padding: 14px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+    }
+    .icon{
+      width:42px; height:42px;
+      border-radius: 14px;
+      display:grid; place-items:center;
+      background: rgba(167,139,250,.15);
+      border: 1px solid rgba(167,139,250,.20);
+      color: rgba(167,139,250,.95);
+      flex: 0 0 auto;
+    }
+    label{ display:block; font-weight:800; margin: 10px 0 6px }
+    input, select, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(7,10,20,.50);
+      color: var(--text);
+      outline:none;
+    }
+    textarea{ min-height: 120px; resize: vertical }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(110,231,255,.45);
+      box-shadow: 0 0 0 3px rgba(110,231,255,.12);
+    }
+    .form-actions{
+      display:flex; gap:12px; flex-wrap:wrap; margin-top: 12px;
+      align-items:center;
+    }
+    .hint{ color: var(--muted); font-size: 12px; margin-top: 8px }
+
+    /* Footer */
+    footer{
+      padding: 30px 0 40px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      background: rgba(7,10,20,.30);
+      color: var(--muted);
+    }
+    .foot{
+      display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;
+      align-items:center;
+    }
+
+    /* Floating WhatsApp */
+    .wa-float{
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 100;
+      border-radius: 999px;
+      padding: 12px 14px;
+      box-shadow: var(--shadow);
+      background: rgba(52,211,153,.18);
+      border: 1px solid rgba(52,211,153,.25);
+    }
+    .wa-float:hover{ background: rgba(52,211,153,.24) }
+    .wa-float span{ font-weight: 900 }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .hero-grid{ grid-template-columns: 1fr }
+      .mini{ grid-template-columns: 1fr 1fr 1fr }
+      .grid3{ grid-template-columns: 1fr }
+      .steps{ grid-template-columns: 1fr 1fr }
+      .contact-grid{ grid-template-columns: 1fr }
+      .menu{ display:none }
+    }
+    @media (max-width: 520px){
+      .mini{ grid-template-columns: 1fr }
+      .steps{ grid-template-columns: 1fr }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "name":"Père Hilaire (PH) — CV professionnels",
+    "areaServed":"CD",
+    "serviceType":["Rédaction de CV","Optimisation ATS","Lettre de motivation","LinkedIn"],
+    "url":"",
+    "description":"Vente de CV professionnels (ATS), lettres de motivation et optimisation LinkedIn."
+  }
+  </script>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <div class="brand" aria-label="Père Hilaire">
+          <div class="logo" aria-hidden="true">PH</div>
+          <div>
+            <div style="font-size:14px; opacity:.95">Père Hilaire</div>
+            <div style="font-size:12px; color:var(--muted); font-weight:700">CV • ATS • Lettre • LinkedIn</div>
+          </div>
+        </div>
+
+        <nav class="menu" aria-label="Navigation">
+          <a href="#offres">Offres</a>
+          <a href="#process">Process</a>
+          <a href="#exemples">Exemples</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div style="display:flex; gap:10px; align-items:center">
+          <a class="btn" id="btnWhatsHeader" href="#contact" title="Contacter sur WhatsApp">WhatsApp</a>
+          <a class="btn primary" href="#contact" title="Commander un CV">Commander</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-card">
+            <div class="kicker">
+              <span aria-hidden="true">⚡</span>
+              <span>CV modernes • compatibles ATS • adaptés à ton secteur</span>
+            </div>
+            <h1>Un CV qui attire l’attention…<br/>et qui passe les filtres ATS.</h1>
+            <p class="lead">
+              Je rédige et je mets en forme ton CV + lettre de motivation avec un style professionnel,
+              clair et convaincant. Objectif : décrocher plus d’entretiens.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="#contact">📩 Demander un devis</a>
+              <a class="btn" href="#offres">Voir les offres</a>
+              <span class="tag" title="Délais standards">⏱ 48–71h (selon offre)</span>
+            </div>
+
+            <div class="mini" role="list" aria-label="Avantages">
+              <div class="stat" role="listitem">
+                <b>ATS</b>
+                <span>Structure lisible par les recruteurs & logiciels</span>
+              </div>
+              <div class="stat" role="listitem">
+                <b>Design pro</b>
+                <span>Mise en page moderne, sobre, imprimable</span>
+              </div>
+              <div class="stat" role="listitem">
+                <b>Rapide</b>
+                <span>Livraison et retouches simples</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="side">
+            <div class="panel">
+              <h3>Ce que tu reçois</h3>
+              <ul class="bullets">
+                <li>CV en <b>PDF</b> + version <b>modifiable</b> (Word)</li>
+                <li>Optimisation pour <b>poste ciblé</b> (mots-clés)</li>
+                <li>Conseils rapides pour l’entretien</li>
+              </ul>
+            </div>
+
+            <div class="panel">
+              <h3>Pour qui ?</h3>
+              <p class="muted" style="margin:0 0 10px">
+                Étudiants, jeunes diplômés, professionnels, reconversion, expatriation.
+              </p>
+              <div style="display:flex; flex-wrap:wrap; gap:8px">
+                <span class="pill">Informatique</span>
+                <span class="pill">Administration</span>
+                <span class="pill">Santé</span>
+                <span class="pill">ONG</span>
+                <span class="pill">Commerce</span>
+              </div>
+            </div>
+
+            <div class="panel">
+              <h3>Paiement</h3>
+              <p class="muted" style="margin:0">
+                Paiement via Mobile Money / transfert sur le même numéro WhatsApp (voir ci-dessous).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFRES -->
+    <section id="offres">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2>Offres & tarifs</h2>
+            <p>Choisis l’offre selon ton besoin. Les prix sont indicatifs (USD) — on ajuste si ton dossier est très complexe.</p>
+          </div>
+        </div>
+
+        <div class="grid3">
+          <div class="card">
+            <h3>Standard</h3>
+            <div class="price">
+              <div class="amount">$10</div>
+              <div class="small">⏱ 71h</div>
+            </div>
+            <ul class="features">
+              <li>CV professionnel (PDF + Word)</li>
+              <li>Mise en page propre</li>
+              <li>1 retouche</li>
+            </ul>
+            <div class="hero-actions" style="margin-top:14px">
+              <a class="btn primary" href="#contact" data-offre="Standard">Commander</a>
+              <a class="btn" href="#" data-pay="Standard">💳 Payer maintenant</a>
+              <a class="btn" href="#faq">Questions</a>
+            </div>
+          </div>
+
+          <div class="card" style="border-color: rgba(110,231,255,.28)">
+            <h3>Pro (recommandé)</h3>
+            <div class="price">
+              <div class="amount">$15</div>
+              <div class="small">⏱ 48–60h</div>
+            </div>
+            <ul class="features">
+              <li>CV ATS + mots-clés ciblés</li>
+              <li>Lettre de motivation courte</li>
+              <li>2 retouches</li>
+            </ul>
+            <div class="hero-actions" style="margin-top:14px">
+              <a class="btn primary" href="#contact" data-offre="Pro">Commander</a>
+              <a class="btn" href="#" data-pay="Pro">💳 Payer maintenant</a>
+              <a class="btn" href="#process">Voir le process</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Premium</h3>
+            <div class="price">
+              <div class="amount">$20</div>
+              <div class="small">⏱ 48h</div>
+            </div>
+            <ul class="features">
+              <li>CV ATS (haut niveau)</li>
+              <li>Lettre + optimisation LinkedIn</li>
+              <li>3 retouches + prioritaire</li>
+            </ul>
+            <div class="hero-actions" style="margin-top:14px">
+              <a class="btn primary" href="#contact" data-offre="Premium">Commander</a>
+              <a class="btn" href="#" data-pay="Premium">💳 Payer maintenant</a>
+              <a class="btn" href="#exemples">Exemples</a>
+            </div>
+          </div>
+        </div>
+
+        <p class="hint">Astuce : pour un meilleur résultat, envoie aussi 2–3 offres d’emploi qui t’intéressent (même des captures).</p>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2>Comment ça marche</h2>
+            <p>Simple, rapide et clair. On avance étape par étape jusqu’à la version finale.</p>
+          </div>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="num">1</div>
+            <b>Commande</b>
+            <div class="muted">Tu choisis une offre et tu me contactes.</div>
+          </div>
+          <div class="step">
+            <div class="num">2</div>
+            <b>Infos</b>
+            <div class="muted">Tu m’envoies ton ancien CV + objectifs (poste/secteur).</div>
+          </div>
+          <div class="step">
+            <div class="num">3</div>
+            <b>Rédaction</b>
+            <div class="muted">Je restructure, optimise (ATS) et mets en page.</div>
+          </div>
+          <div class="step">
+            <div class="num">4</div>
+            <b>Livraison</b>
+            <div class="muted">Tu reçois PDF + Word et on fait les retouches.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXEMPLES -->
+    <section id="exemples">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2>Exemples de styles</h2>
+            <p>Tu peux choisir un style (sobre, moderne, créatif). Le contenu est toujours optimisé pour la lisibilité.</p>
+          </div>
+        </div>
+
+        <div class="grid3">
+          <div class="card">
+            <h3>Style “ATS Sobre”</h3>
+            <p class="muted">Idéal quand les recruteurs utilisent des logiciels de tri.</p>
+          </div>
+          <div class="card">
+            <h3>Style “Moderne Pro”</h3>
+            <p class="muted">Design élégant, parfait pour la majorité des secteurs.</p>
+          </div>
+          <div class="card">
+            <h3>Style “Créatif”</h3>
+            <p class="muted">Pour designers, créateurs, communication (avec prudence ATS).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2>FAQ</h2>
+            <p>Les questions que les clients posent le plus.</p>
+          </div>
+        </div>
+
+        <div class="grid3">
+          <div class="card">
+            <h3>Tu écris dans quelle langue ?</h3>
+            <p class="muted">Français (et possibilité d’anglais si tu fournis les infos).</p>
+          </div>
+          <div class="card">
+            <h3>Quels fichiers je reçois ?</h3>
+            <p class="muted">Un PDF prêt à imprimer + une version Word modifiable.</p>
+          </div>
+          <div class="card">
+            <h3>Et si je n’ai pas d’ancien CV ?</h3>
+            <p class="muted">Pas grave. On part de tes expériences, études, projets et objectifs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2>Contact & commande</h2>
+            <p>Remplis le formulaire et choisis l’envoi par Email ou WhatsApp (pratique sur mobile).</p>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card">
+            <h3>Coordonnées</h3>
+
+            <div class="contact-item" style="margin-top:12px">
+              <div class="icon" aria-hidden="true">📞</div>
+              <div>
+                <b>WhatsApp</b>
+                <div class="muted" id="waText"></div>
+                <div class="hint">Clique sur le bouton WhatsApp en bas à droite pour écrire directement. Paiement sur ce même numéro.</div>
+              </div>
+            </div>
+
+            <div class="contact-item" style="margin-top:12px">
+              <div class="icon" aria-hidden="true">✉️</div>
+              <div>
+                <b>Email</b>
+                <div class="muted" id="emailText"></div>
+                <div class="hint">Remplace l’email dans le code si nécessaire (voir commentaire dans &lt;script&gt;).</div>
+              </div>
+            </div>
+
+            <div class="contact-item" style="margin-top:12px">
+              <div class="icon" aria-hidden="true">⏱</div>
+              <div>
+                <b>Délais</b>
+                <div class="muted">Standard: ~71h • Pro: 48–60h • Premium: ~48h</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Formulaire</h3>
+
+            <form id="orderForm" autocomplete="on">
+              <label for="name">Nom complet</label>
+              <input id="name" name="name" type="text" placeholder="Ex: Ombason Hilaire" required />
+
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="ex: monemail@gmail.com" required />
+
+              <label for="phone">WhatsApp (numéro)</label>
+              <input id="phone" name="phone" type="tel" placeholder="ex: +243..." />
+
+              <label for="offer">Offre</label>
+              <select id="offer" name="offer">
+                <option value="Standard">Standard ($10)</option>
+                <option value="Pro">Pro ($15)</option>
+                <option value="Premium">Premium ($20)</option>
+              </select>
+
+              <label for="goal">Poste / objectif</label>
+              <input id="goal" name="goal" type="text" placeholder="Ex: Agent administratif, Développeur, ONG..." required />
+
+              <label for="message">Détails (expériences, études, liens, infos importantes)</label>
+              <textarea id="message" name="message" placeholder="Écris ici ce que tu veux mettre en avant (réalisations, projets, compétences, etc.)"></textarea>
+
+              <div class="form-actions">
+                <button class="btn primary" type="submit">📩 Envoyer par email</button>
+                <button class="btn" type="button" id="sendWhats">💬 Envoyer sur WhatsApp</button>
+                <button class="btn" type="button" id="payWhats">💳 Payer maintenant (WhatsApp)</button>
+              </div>
+
+              <div class="hint">
+                Si tu as un ancien CV, tu peux le joindre directement dans ton email/WhatsApp après l’envoi du message.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener">
+    💬 <span>WhatsApp</span>
+  </a>
+
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div>© <span id="year"></span> Père Hilaire (PH). Tous droits réservés.</div>
+        <div class="muted">Site vitrine simple • Une page • Rapide à héberger (GitHub Pages / Netlify)</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // === PERSONNALISE ICI ===
+    // Mets ton email ci-dessous (obligatoire pour le bouton "Envoyer par email")
+    const EMAIL_TO = "ombasonhilaire@gmail.com";
+
+    // Numéro WhatsApp du business (sans +, avec l’indicatif)
+    // Exemple RDC: +243 810 402 480 -> "243810402480"
+    const WHATSAPP_NUMBER = "243810402480";
+
+    // Nom / marque
+    const BRAND = "Père Hilaire (PH)";
+
+    // ========================
+
+    const $ = (id) => document.getElementById(id);
+
+    function waLink(text){
+      const encoded = encodeURIComponent(text);
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+    }
+
+    function buildMessage(){
+      const name = $("name").value.trim();
+      const email = $("email").value.trim();
+      const phone = $("phone").value.trim();
+      const offer = $("offer").value;
+      const goal = $("goal").value.trim();
+      const msg = $("message").value.trim();
+
+      return [
+        `Bonjour ${BRAND},`,
+        ``,
+        `Je souhaite commander un CV.`,
+        `Offre : ${offer}`,
+        `Objectif : ${goal}`,
+        ``,
+        `Nom : ${name}`,
+        `Email : ${email}`,
+        phone ? `WhatsApp : ${phone}` : null,
+        ``,
+        msg ? `Détails : ${msg}` : `Détails : (à compléter)`,
+        ``,
+        `Merci !`
+      ].filter(Boolean).join("\n");
+    }
+
+    function setOfferFromButtons(){
+      document.querySelectorAll("[data-offre]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const offer = btn.getAttribute("data-offre");
+          $("offer").value = offer;
+        });
+      });
+    }
+
+    // WhatsApp buttons
+    function initWhatsApp(){
+      const baseText = `Bonjour ${BRAND}, je veux commander un CV. Pouvez-vous me dire la procédure ?`;
+      $("waFloat").href = waLink(baseText);
+      $("btnWhatsHeader").href = waLink(baseText);
+      $("waText").textContent = `+${WHATSAPP_NUMBER}`;
+    }
+
+    // Email UI
+    function initEmail(){
+      $("emailText").textContent = EMAIL_TO;
+    }
+
+    // Form submit -> mailto
+    $("orderForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      if(!EMAIL_TO.includes("@")){
+        alert("⚠️ Tu dois d’abord remplacer EMAIL_TO par ton email dans le code (voir <script>).");
+        return;
+      }
+
+      const subject = encodeURIComponent(`Commande CV — ${$("offer").value}`);
+      const body = encodeURIComponent(buildMessage());
+      const mailto = `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`;
+
+      // Ouvre le client mail
+      window.location.href = mailto;
+    });
+
+    // Send via WhatsApp
+    $("sendWhats").addEventListener("click", () => {
+      const text = buildMessage();
+      window.open(waLink(text), "_blank", "noopener");
+    });
+
+    // Payment helpers
+
+    function buildPaymentMessage(offer){
+      const name = $("name") ? $("name").value.trim() : "";
+      const email = $("email") ? $("email").value.trim() : "";
+      const phone = $("phone") ? $("phone").value.trim() : "";
+      const goal = $("goal") ? $("goal").value.trim() : "";
+
+      return [
+        `Bonjour ${BRAND},`,
+        ``,
+        `Je veux PAYER maintenant pour l’offre : ${offer}.`,
+        goal ? `Objectif : ${goal}` : null,
+        ``,
+        name ? `Nom : ${name}` : null,
+        email ? `Email : ${email}` : null,
+        phone ? `WhatsApp : ${phone}` : null,
+        ``,
+        `Je paie sur ce même numéro WhatsApp. Merci de m’envoyer les instructions (montant exact, devise, référence).`
+      ].filter(Boolean).join("\n");
+    }
+
+    function setPayButtons(){
+      document.querySelectorAll("[data-pay]").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          const offer = btn.getAttribute("data-pay") || $("offer")?.value || "Pro";
+          window.open(waLink(buildPaymentMessage(offer)), "_blank", "noopener");
+        });
+      });
+
+      const payBtn = $("payWhats");
+      if(payBtn){
+        payBtn.addEventListener("click", () => {
+          const offer = $("offer") ? $("offer").value : "Pro";
+          window.open(waLink(buildPaymentMessage(offer)), "_blank", "noopener");
+        });
+      }
+    }
+
+
+    // Footer year
+    $("year").textContent = new Date().getFullYear();
+
+    setOfferFromButtons();
+    setPayButtons();
+    initWhatsApp();
+    initEmail();
+  </script>
+</body>
+</html>
